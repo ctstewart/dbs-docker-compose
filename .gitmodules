@@ -4,3 +4,6 @@
 [submodule "dbs-client"]
 	path = dbs-client
 	url = https://github.com/heelercs/dbs-client.git
+[submodule "dbs-api"]
+	path = dbs-api
+	url = https://github.com/heelercs/dbs-api.git
