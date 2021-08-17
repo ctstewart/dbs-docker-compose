@@ -1,0 +1,3 @@
+[submodule "dbs-admin-panel"]
+	path = dbs-admin-panel
+	url = https://github.com/heelercs/dbs-admin-panel.git
