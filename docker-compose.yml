@@ -1,0 +1,51 @@
+version: '3'
+services:
+    nginx:
+        container_name: nginx
+        restart: always
+        build: ./nginx
+        ports:
+            - '80:80'
+        networks:
+            - dbs-app
+    client:
+        container_name: dbs-client
+        restart: always
+        build:
+            context: ./dbs-client
+            args:
+                - VUE_APP_API_URL=${URL}:3000
+        ports:
+            - '5000:80'
+        networks:
+            - dbs-app
+    api:
+        container_name: dbs-api
+        restart: always
+        build: ./dbs-api
+        ports:
+            - '3000:3000'
+        networks:
+            - dbs-app
+        depends_on:
+            - mongo
+        environment:
+            - MONGO_URI=mongodb://mongo:27017/dbs?retryWrites=true&w=majority
+            - NODE_ENV=${NODE_ENV}
+            - CORS_ALLOWED=${URL}
+            - PORT=3000
+    mongo:
+        container_name: mongo
+        image: mongo
+        ports:
+            - '27017:27017'
+        networks:
+            - dbs-app
+        volumes:
+            - mongo-data:/data/db
+networks:
+    dbs-app:
+        driver: bridge
+volumes:
+    mongo-data:
+        driver: local
