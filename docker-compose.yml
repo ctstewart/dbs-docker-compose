@@ -38,7 +38,7 @@ services:
         container_name: dbs-admin-panel
         restart: always
         build:
-            context: ./dbs-client
+            context: ./dbs-admin-panel
             args:
                 - VUE_APP_API_URL=${URL}:3000
         ports:
