@@ -34,6 +34,17 @@ services:
             - NODE_ENV=${NODE_ENV}
             - CORS_ALLOWED=${URL}
             - PORT=3000
+    admin-panel:
+        container_name: dbs-admin-panel
+        restart: always
+        build:
+            context: ./dbs-client
+            args:
+                - VUE_APP_API_URL=${URL}:3000
+        ports:
+            - '4000:80'
+        networks:
+            - dbs-app
     mongo:
         container_name: mongo
         image: mongo
