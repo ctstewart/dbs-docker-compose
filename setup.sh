@@ -21,7 +21,8 @@ if [[ $continue == 'y' ]]; then
     systemctl enable docker-compose-dbs
     apt install nginx
     cp ./config/nginx.conf /etc/nginx/conf.d/default.conf
-    snap install core
+    nginx -s reload
+    snap install core -y
     snap refresh core
     snap install --classic certbot
     certbot --nginx
