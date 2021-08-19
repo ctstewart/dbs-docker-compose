@@ -17,12 +17,13 @@ read continue
 if [[ $continue == 'y' ]]; then
     apt update
     apt upgrade -y
+    apt install docker-compose -y
     cp ./config/docker-compose-dbs.service /etc/systemd/system/docker-compose-dbs.service
     systemctl enable docker-compose-dbs
-    apt install nginx
+    apt install nginx -y
     cp ./config/nginx.conf /etc/nginx/conf.d/default.conf
     nginx -s reload
-    snap install core -y
+    snap install core
     snap refresh core
     snap install --classic certbot
     certbot --nginx
