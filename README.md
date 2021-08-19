@@ -4,7 +4,7 @@
 
 Note: **This has been tested on a Digital Ocean droplet running Ubuntu 20.04.**
 
-`git clone --recurse-submodules https://github.com/heelercs/dbs-docker-compose.git`
+`git clone --recurse-submodules https://github.com/heelercs/dbs-docker-compose.git dbs`
 
 ## Usage
 

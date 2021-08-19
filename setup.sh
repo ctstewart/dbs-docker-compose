@@ -17,7 +17,6 @@ read continue
 if [[ $continue == 'y' ]]; then
     apt update
     apt upgrade -y
-    apt install docker-compose -y
     cp ./config/docker-compose-dbs.service /etc/systemd/system/docker-compose-dbs.service
     systemctl enable docker-compose-dbs
     apt install nginx -y
