@@ -17,6 +17,9 @@ read continue
 if [[ $continue == 'y' ]]; then
     apt update
     apt upgrade -y
+    ufw enable
+    ufw allow http
+    ufw allow https
     cp ./config/docker-compose-dbs.service /etc/systemd/system/docker-compose-dbs.service
     systemctl enable docker-compose-dbs
     apt install nginx -y
