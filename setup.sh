@@ -18,16 +18,17 @@ if [[ $continue == 'y' ]]; then
     apt update
     apt upgrade -y
     ufw enable
+    ufw allow ssh
     ufw allow http
     ufw allow https
     cp ./config/docker-compose-dbs.service /etc/systemd/system/docker-compose-dbs.service
     systemctl enable docker-compose-dbs
     apt install nginx -y
     cp ./config/nginx.conf /etc/nginx/conf.d/default.conf
-    nginx -s reload
     snap install core
     snap refresh core
     snap install --classic certbot
     certbot --nginx
+    nginx -s reload
     reboot
 fi

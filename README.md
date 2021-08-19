@@ -11,10 +11,10 @@ Note: **This has been tested on a Digital Ocean droplet running Ubuntu 20.04.**
 ### Init images and container
 
 1. CD into the dbs directory `cd dbs`
-1. Run `apt install docker-compose`
+1. Run `apt install docker-compose -y`
 1. Rename "example.env" to ".env" and update URL with "https://YOURDOMAIN".
 1. Run `docker-compose up` to make sure everything starts without error.
-1. Ctl-C to stop the process.
+1. Ctl-c to stop the process.
 1. Run `docker-compose down`
 
 ### Setup nginx and docker-compose service
