@@ -51,7 +51,7 @@ if [[ $runScript == 'y' ]]; then
 
     # CLIENT
     echo "NODE_ENV=$nodeEnv
-    VUE_APP_API_URL=$domain" > ./dbs-admin-client/.env
+    VUE_APP_API_URL=$domain" > ./dbs-client/.env
 
     echo "{ \"domain\": $auth0Domain, \"clientId\": $clientId, \"audience\": $audience }" > ./dbs-client/auth_config.json
 
