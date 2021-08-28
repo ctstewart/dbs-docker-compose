@@ -41,19 +41,19 @@ if [[ $runScript == 'y' ]]; then
     CORS_ALLOWED=$domain
     MONGO_URI = mongodb://mongo:27017" > ./dbs-api/config/config.env
 
-    echo "{ \"domain\": $auth0Domain, \"audience\": $audience }" > ./dbs-api/auth_config.json
+    echo "{ \"domain\": \"$auth0Domain\", \"audience\": \"$audience\" }" > ./dbs-api/auth_config.json
 
     # ADMIN-PANEL
     echo "NODE_ENV=$nodeEnv
     VUE_APP_API_URL=$domain" > ./dbs-admin-panel/.env
 
-    echo "{ \"domain\": $auth0Domain, \"clientId\": $clientId, \"audience\": $audience }" > ./dbs-admin-panel/auth_config.json
+    echo "{ \"domain\": \"$auth0Domain\", \"clientId\": \"$clientId\", \"audience\": \"$audience\" }" > ./dbs-admin-panel/auth_config.json
 
     # CLIENT
     echo "NODE_ENV=$nodeEnv
     VUE_APP_API_URL=$domain" > ./dbs-client/.env
 
-    echo "{ \"domain\": $auth0Domain, \"clientId\": $clientId, \"audience\": $audience }" > ./dbs-client/auth_config.json
+    echo "{ \"domain\": \"$auth0Domain\", \"clientId\": \"$clientId\", \"audience\": \"$audience\" }" > ./dbs-client/auth_config.json
 
     ufw enable
     ufw allow ssh
